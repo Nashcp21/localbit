@@ -367,7 +367,7 @@ The localbit program listens for UDP packets on port 2021. If they
 start with 6 bytes that match the cloudbit's MAC address, then the
 next byte is examined. This is the LED state byte. If this byte's 8th
 bit is set (0x80), then then bits 1 through 3 of the LED state byte
-are interpreted as the red, green, and blue channels for the LED
+are interpreted as the green, red, and blue channels for the LED
 respectively. The byte after this is the output state byte. If the
 high bit is set, then the next two bytes are interpreted as the 16 bit
 value in network byte order (big-endian) to which to set the output
@@ -385,11 +385,11 @@ value in network byte order (big-endian) to which to set the output
 LED state:
 MSB                   LSB
 +--+--+--+--+--+--+--+--+
-|CC|  |  |  |  |RR|GG|BB|
+|CC|  |  |  |  |GG|RR|BB|
 +--+--+--+--+--+--+--+--+
  '---- Control  |  |  |          Whether to change the LED.
-  Red ----------'  |  |          If CC is set, new red channel state.
-  Green -----------'  |          If CC is set, new green channel state.
+  Green---------'  |  |          If CC is set, new green channel state.
+  Red   -----------'  |          If CC is set, new red channel state.
   Blue ---------------'          If CC is set, new blue channel state.
 
 Output state:
